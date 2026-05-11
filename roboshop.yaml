@@ -21,10 +21,13 @@
 
     - name: create ec2 instance
       amazon.aws.ec2_instance:
-        instance_type: "t3.micro"
-        security_group: "{{ sg_id }}"
-        image_id: "{{ ami_id }}"
         name: "{{ item }}-{{ env }}"
+        image_id: "{{ ami_id }}"
+        instance_type: "t3.micro"
+
+        security_group: "{{ sg_id }}"
+
+        wait: false
 
         tags:
           Project: "roboshop"
