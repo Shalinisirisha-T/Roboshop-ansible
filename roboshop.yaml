@@ -51,7 +51,7 @@
         record: "{{ item.item }}-{{ env }}.{{ domain_name }}"
         type: A
         ttl: 1
-        value: "{{ item.instance_ids[0] }}"
+        value: "{{ item.instances[0].private_ip_address }}"
         wait: true
         overwrite: true
 
@@ -65,7 +65,7 @@
         record: "roboshop-{{ env }}.{{ domain_name }}"
         type: A
         ttl: 1
-        value: "{{ item.instances[0].public_ip }}"
+        value: "{{ item.instances[0].private_ip_address }}"
         wait: false
         overwrite: true
 
